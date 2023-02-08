@@ -34,11 +34,58 @@
                 container: "viewDiv" // Div element
             });
             
-            // Define a pop-up for Trailheads
-              const popup = {
-                "title": "School",
-                "content": "<b>School:</b> {NAME}<br><b>School Level:</b> {SCHOOL_LEVEL}<br><b>School Type:</b> {SCHOOL_TYPE}<br><b>Board Name:</b> {BOARD_NAME}<br><b>Address:</b> {SOURCE_ADDRESS}"
-              }
+     
+              
+             // Define popup for Schools
+      const popup = {
+        "title": "{NAME}",
+        "content": [{
+          "type": "fields",
+          "fieldInfos": [
+            {
+              "fieldName": "SCHOOL_LEVEL",
+              "label": "School Level",
+              "isEditable": true,
+              "tooltip": "",
+              "visible": true,
+              "format": null,
+              "stringFieldOption": "text-box"
+            },
+            {
+              "fieldName": "SCHOOL_TYPE",
+              "label": "School Type",
+              "isEditable": true,
+              "tooltip": "",
+              "visible": true,
+              "format": null,
+              "stringFieldOption": "text-box"
+            },
+            {
+              "fieldName": "BOARD_NAME",
+              "label": "Board Name",
+              "isEditable": true,
+              "tooltip": "",
+              "visible": true,
+              "format": null,
+              "stringFieldOption": "text-box"
+            },
+
+            {
+              "fieldName": "SOURCE_ADDRESS",
+              "label": "Address",
+              "isEditable": true,
+              "tooltip": "",
+              "visible": true,
+              "format": {
+                "places": 2,
+                "digitSeparator": true
+              },
+
+              "stringFieldOption": "text-box"
+            }
+          ]
+        }]
+      }
 
             //Schools feature layer (points)
             const schoolsLayer = new FeatureLayer({
