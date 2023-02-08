@@ -33,10 +33,18 @@
                 zoom: 2,
                 container: "viewDiv" // Div element
             });
+            
+            // Define a pop-up for Trailheads
+              const popup = {
+                "title": "School",
+                "content": "<b>School:</b> {NAME}<br><b>School Level:</b> {SCHOOL_LEVEL}<br><b>School Type:</b> {SCHOOL_TYPE}<br><b>Board Name:</b> {BOARD_NAME}<br><b>Address:</b> {SOURCE_ADDRESS}"
+              }
 
             //Schools feature layer (points)
             const schoolsLayer = new FeatureLayer({
-                url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/LR_Schools_Updated/FeatureServer"
+                url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/LR_Schools_Updated/FeatureServer",
+                outFields: ["NAME","SCHOOL_LEVEL","SCHOOL_TYPE","BOARD_NAME","SOURCE_ADDRESS"],
+                popupTemplate: popup
             });
 
             map.add(schoolsLayer);
